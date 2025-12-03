@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Adrián Reinado">
+    <link rel="stylesheet" href="/globalCss/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <title>Proyecto Spa</title>
+
+    <style>
+
+        .header__nav {
+            background-color: rgba(200, 200, 200, 0.25); 
+            backdrop-filter: blur(6px);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            padding: 15px 0; 
+        }
+
+        .header__container {
+            width: 95%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .header__logo img {
+            width: 120px;
+            height: auto;
+        }
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+        .menu__item {
+            position: relative;
+        }
+
+        .menu__link {
+            text-decoration: none;
+            padding: 10px 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            transition: color .3s ease;
+        }
+
+        .menu__link:hover {
+            color: #d10081;
+        }
+        .menu__submenu {
+            display: none;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            list-style: none;
+            background: #ffffff;
+            border: 1px solid #ccc;
+            padding: 10px 0;
+            width: 200px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            animation: fadeIn .3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu__submenu-item a {
+            display: block;
+            padding: 12px 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .menu__submenu-item a:hover {
+            background: #f2e6f2;
+            color: #d10081;
+        }
+
+
+        .menu__item--submenu:hover .menu__submenu {
+            display: block;
+        }
+
+        .header__hamburguesa{
+            display: none;
+            cursor: pointer;
+            user-select: none;
+        }
+        .header__logo img {
+            width: 48px;      
+            height: auto;     
+            object-fit: contain;
+        }
+
+        @media (max-width: 850px) {
+            .header__container {
+                position: relative;
+                width: 95%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header__hamburguesa {
+                display: block;
+                font-size: 2rem;
+                cursor: pointer;
+                z-index: 2;
+            }
+            .menu {
+                position: absolute;
+                top: 55px;   
+                left:0;
+                display: none;
+                flex-direction: column;
+                width: 180px;
+                background: rgba(255, 255, 255, 0.75);
+                backdrop-filter: blur(8px);
+                padding: 10px 0;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.20);
+                z-index: 15;
+            }
+
+            .menu.menu--active {
+                display: flex;
+            }
+
+            .menu__item {
+                width: 100%;
+                position: relative;
+            }
+
+            .menu__link {
+                width: 100%;
+                display: block;
+                padding: 10px 15px;
+            }
+
+            .menu__submenu {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 150px; 
+                flex-direction: column;
+                width: 150px;
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(6px);
+                padding: 8px 0;
+                border-radius: 10px;
+                z-index: 30;
+            }
+            .menu__item--submenu.active .menu__submenu {
+                display: flex;
+            }
+            .menu__submenu-item a {
+                padding: 10px 15px;
+                display: block;
+            }
+
+            .menu__submenu-item:last-child a {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body> 
+
+    <header class="header">
+        <nav class="header__nav">
+            <div class="header__container">
+                <div class="header__hamburguesa" id="hamburguesa">
+                    ☰
+                </div>
+                <!-- LOGO -->
+                <div class="header__logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/909/909124.png" alt="Logo del Spa">
+                </div>
+
+                <!-- MENÚ PRINCIPAL -->
+                <ul class="menu">
+
+                    <!-- HOME -->
+                    <li class="menu__item">
+                        <a href="index.html" class="menu__link">Home</a>
+                    </li>
+
+                    <!-- CLIENTE -->
+                    <li class="menu__item menu__item--submenu">
+                        <a href="#" class="menu__link">Cliente</a>
+
+                        <ul class="menu__submenu">
+                            <li class="menu__submenu-item"><a href="#">Registrarme</a></li>
+                            <li class="menu__submenu-item"><a href="#">Tratamientos</a></li>
+                            <li class="menu__submenu-item"><a href="#">Servicios</a></li>
+                            <li class="menu__submenu-item"><a href="#">Productos</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- EMPLEADO -->
+                    <li class="menu__item menu__item--submenu">
+                        <a href="#" class="menu__link">Empleado</a>
+
+                        <ul class="menu__submenu">
+                            <li class="menu__submenu-item"><a href="#">Registrar Empleado</a></li>
+                            <li class="menu__submenu-item"><a href="#">Registrar Producto</a></li>
+                            <li class="menu__submenu-item"><a href="#">Registrar Servicios</a></li>
+                            <li class="menu__submenu-item"><a href="#">Registrar Tratamiento</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- CONTACTO -->
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">Contacto</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        </header>
+        <script>
+            const hamburguesa = document.getElementById("hamburguesa");
+            const menu = document.querySelector(".menu");
+            const submenuItems = document.querySelectorAll(".menu__item--submenu");
+
+            hamburguesa.addEventListener("click", () => {
+                menu.classList.toggle("menu--active");
+            });
+
+        </script>
+
+
+</body>
+</html>
