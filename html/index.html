@@ -91,7 +91,6 @@
                     color: #d10081;
                 }
 
-                /* Hamburguesa oculta */
                 .header__hamburguesa {
                     display: none;
                     font-size: 2rem;
@@ -149,7 +148,7 @@
                     margin-top: 20px;
                 }
 
-                .servicio__contenido button {
+                button {
                     margin-top: 20px;
                     padding: 12px 28px;
                     border-radius: 30px;
@@ -160,11 +159,58 @@
                     transition: 0.3s;
                 }
 
-                .servicio__contenido button:hover {
+                button:hover {
                     background: #d10081;
                     color: white;
                 }
-                /*Footer*/ 
+
+                .faciales {
+                    width: 1000px;
+                    max-width: 1000px;
+                    margin: 60px auto;
+                    text-align: center;
+                }
+
+                .faciales h2 {
+                    font-size: 2.2rem;
+                    margin-bottom: 20px;
+                    font-family: "Playfair Display";
+                }
+
+                .faciales p {
+                    max-width: 850px;
+                    margin: 0 auto 40px;
+                    line-height: 1.6;
+                }
+
+                .faciales__contenedor {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr); 
+                    gap: 30px;
+                }
+
+                .faciales__opciones {
+                    background: #fff;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    padding-bottom: 20px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                    transition: transform .3s ease;
+                }
+
+                .faciales__opciones img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                }
+
+                .faciales__opciones p {
+                    margin: 20px;
+                }
+
+                .faciales__opciones:hover {
+                    transform: translateY(-6px);
+                }
                 footer::after { 
                     content: "VICTOR REINADO__Desarrollo Web__SOFT-MA-6-1"; 
                     display: block; 
@@ -288,6 +334,31 @@
                     .servicio__contenido{
                         order: 2;
                     }
+                    .faciales {
+                        width: 86%;
+                        margin: 60px 30px;
+                        text-align: center;
+                    }                   
+                    .faciales__contenedor {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr); 
+                        gap: 20px;
+                    }
+
+                
+                    .faciales__opciones img {
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                    }
+
+                    .faciales__opciones p {
+                        margin: 20px;
+                    }
+
+                    .faciales__opciones:hover {
+                        transform: translateY(-6px);
+                    }
 
 
                     .footer__contenido { 
@@ -400,6 +471,46 @@
                         <img src="https://www.vinevera.com.ec/wp-content/uploads/2019/09/chica-ultrasonido-600x400.jpg" alt="">
                     </div>
                 </div>
+                <div class="faciales">
+                    <h2>FACIALES TRANSFORMADORES</h2>
+
+                    <p>Los tratamientos faciales más codiciados del país. Premiado, orientado a resultados y transformador. Piensa en una limpieza profunda, un lifting de firma mundialmente famoso y una piel tan luminosa y refinada que no necesita filtro. Cada uno adaptado a tu piel por nuestras esteticistas expertas.</p>
+                    <div class="faciales__contenedor">
+                        <div class="faciales__opciones">
+                            <img src="https://rescuespa.com/cdn/shop/files/Le_Remodeling_New_490b59a6-00d5-4bdc-9148-abba80c69c85.jpg?v=1754342141&width=535" alt="">
+                            <p>Durante más de 20 años, el Bio-Lift Facial™ ha sido elogiado por la crítica por su capacidad de...</p>
+                            <button> agenda tu cita</button>
+                        </div>
+                        <div class="faciales__opciones">
+                            <img src="https://rescuespa.com/cdn/shop/files/Le_Remodeling_New_490b59a6-00d5-4bdc-9148-abba80c69c85.jpg?v=1754342141&width=535" alt="">
+                            <p>Durante más de 20 años, el Bio-Lift Facial™ ha sido elogiado por la crítica por su capacidad de...</p>
+                            <button> agenda tu cita</button>
+                        </div>
+                        <div class="faciales__opciones">
+                            <img src="https://rescuespa.com/cdn/shop/files/Le_Remodeling_New_490b59a6-00d5-4bdc-9148-abba80c69c85.jpg?v=1754342141&width=535" alt="">
+                            <p>Durante más de 20 años, el Bio-Lift Facial™ ha sido elogiado por la crítica por su capacidad de...</p>
+                            <button> agenda tu cita</button>
+                        </div>
+                        <div class="faciales__opciones">
+                            <img src="https://rescuespa.com/cdn/shop/files/Le_Remodeling_New_490b59a6-00d5-4bdc-9148-abba80c69c85.jpg?v=1754342141&width=535" alt="">
+                            <p>Durante más de 20 años, el Bio-Lift Facial™ ha sido elogiado por la crítica por su capacidad de...</p>
+                            <button> agenda tu cita</button>
+                        </div>
+                        <div class="faciales__opciones">
+                            <img src="https://rescuespa.com/cdn/shop/files/Le_Remodeling_New_490b59a6-00d5-4bdc-9148-abba80c69c85.jpg?v=1754342141&width=535" alt="">
+                            <p>Durante más de 20 años, el Bio-Lift Facial™ ha sido elogiado por la crítica por su capacidad de...</p>
+                            <button> agenda tu cita</button>
+                        </div>
+                        <div class="faciales__opciones">
+                            <img src="https://rescuespa.com/cdn/shop/files/Le_Remodeling_New_490b59a6-00d5-4bdc-9148-abba80c69c85.jpg?v=1754342141&width=535" alt="">
+                            <p>Durante más de 20 años, el Bio-Lift Facial™ ha sido elogiado por la crítica por su capacidad de...</p>
+                            <button> agenda tu cita</button>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
 
             </main>
             <footer id="pie"> 
