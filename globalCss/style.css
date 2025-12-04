@@ -1,27 +1,23 @@
 :root {
-
-    /* PALETA PRINCIPAL */
-    --color-primary: #d85fa6;
+    /*COLORES (pueden agregar mas variables si ven necesario)*/
+    --color-primary: rgb(216, 95, 166);
     --color-primary-light: #f3c6df;
     --color-secondary: #9b73d1;
-
     --color-white: #ffffff;
     --color-light-gray: #f7f7f7;
     --color-gray: #444444;
     --color-dark: #222222;
-
     --color-success: #8fc1a9;
     /* TIPOGRAFÍA */
-    --font-main: 'Montserrat', sans-serif;
+    --font-main: 'Montserrat', 'Playfair Display','Lucida Sans Regular';
 
-    /* TAMAÑOS TIPOGRÁFICOS EN EM */
-    --h1-size: 2.2em;      /* ~35px */
-    --h2-size: 1.8em;      /* ~30px */
-    --h3-size: 1.4em;      /* ~22px */
-    --h4-size: 1.2em;      /* ~19px */
-    --p-size: 1em;         /* 16px (base) */
-    --small-size: 0.85em;  /* ~14px */
-
+    /* TAMAÑOS  DE LETRA  (manejen em en todas las medidas para que se adapte a todas las pantallas), la medida base es 16px*/
+    --h1-size: 2.3em;      
+    --h2-size: 1.9em;      
+    --h3-size: 1.5em;      
+    --h4-size: 1.3em;   
+    --p-size: 1em;         
+    --small-size: 0.85em;  
 
     --space-xs: 4px;
     --space-sm: 8px;
@@ -29,7 +25,6 @@
     --space-lg: 32px;
     --space-xl: 48px;
 }
-
 
 
 * {
@@ -42,7 +37,6 @@ body {
     font-family: var(--font-main);
     background-color: var(--color-light-gray);
     color: var(--color-gray);
-    line-height: 1.6;
 }
 
 
@@ -65,9 +59,6 @@ p {
     font-size: var(--p-size);
 }
 
-small {
-    font-size: var(--small-size);
-}
 
 
 

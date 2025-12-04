@@ -1,245 +1,444 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Adrián Reinado">
-    <link rel="stylesheet" href="/globalCss/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <html lang="es">
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="author" content="Adrián Reinado" />
 
-    <title>Proyecto Spa</title>
+            <link rel="icon" href="https://cdn.pixabay.com/photo/2024/01/15/20/37/massage-8510852_1280.png">
+            <link rel="stylesheet" href="/globalCss/style.css">
 
-    <style>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
-        .header__nav {
-            background-color: rgba(200, 200, 200, 0.25); 
-            backdrop-filter: blur(6px);
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1;
-            padding: 15px 0; 
-        }
+            <title>Proyecto Spa</title>
 
-        .header__container {
-            width: 95%;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-        }
+            <style>
+                /*HEADER*/
+                .header__nav {
+                    background-color: rgba(118, 35, 83, 0.4);
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    padding: 15px 0;
+                    z-index: 10;
+                    backdrop-filter: blur(8px);
+                }
 
-        .header__logo img {
-            width: 120px;
-            height: auto;
-        }
-        .menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            align-items: center;
-        }
-        .menu__item {
-            position: relative;
-        }
+                .header__container {
+                    width: 95%;
+                    margin: auto;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
 
-        .menu__link {
-            text-decoration: none;
-            padding: 10px 5px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            transition: color .3s ease;
-        }
+                .header__logo img {
+                    width: 65px;
+                    height: auto;
+                }
 
-        .menu__link:hover {
-            color: #d10081;
-        }
-        .menu__submenu {
-            display: none;
-            position: absolute;
-            top: 30px;
-            left: 0;
-            list-style: none;
-            background: #ffffff;
-            border: 1px solid #ccc;
-            padding: 10px 0;
-            width: 200px;
-            border-radius: 6px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            animation: fadeIn .3s ease;
-        }
+                .menu {
+                    display: flex;
+                    list-style: none;
+                    gap: 30px;
+                    align-items: center;
+                }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+                .menu__item {
+                    position: relative;
+                }
 
-        .menu__submenu-item a {
-            display: block;
-            padding: 12px 15px;
-            color: #333;
-            text-decoration: none;
-            font-size: 16px;
-        }
+                .menu__link {
+                    text-decoration: none;
+                    padding: 10px 5px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #f0d9ea;
+                    transition: .3s;
+                }
 
-        .menu__submenu-item a:hover {
-            background: #f2e6f2;
-            color: #d10081;
-        }
+                .menu__link:hover {
+                    color: #d10081;
+                }
+
+                /* Submenú */
+                .menu__submenu {
+                    display: none;
+                    position: absolute;
+                    top: 30px;
+                    left: 0;
+                    list-style: none;
+                    width: 200px;
+                    background: #ffffff;
+                    border-radius: 6px;
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+                }
+
+                .menu__item--submenu:hover .menu__submenu {
+                    display: block;
+                }
+
+                .menu__submenu-item a {
+                    display: block;
+                    padding: 12px 15px;
+                    text-decoration: none;
+                    color: #333;
+                }
+
+                .menu__submenu-item a:hover {
+                    background: #f2e6f2;
+                    color: #d10081;
+                }
+
+                /* Hamburguesa oculta */
+                .header__hamburguesa {
+                    display: none;
+                    font-size: 2rem;
+                    cursor: pointer;
+                }
 
 
-        .menu__item--submenu:hover .menu__submenu {
-            display: block;
-        }
+                /*MAIN*/
 
-        .header__hamburguesa{
-            display: none;
-            cursor: pointer;
-            user-select: none;
-        }
-        .header__logo img {
-            width: 48px;      
-            height: auto;     
-            object-fit: contain;
-        }
+                .main__banner {
+                    position: relative;
+                    width: 100%;
+                    height: 600px;
+                }
 
-        @media (max-width: 850px) {
-            .header__container {
-                position: relative;
-                width: 95%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .header__hamburguesa {
-                display: block;
-                font-size: 2rem;
-                cursor: pointer;
-                z-index: 2;
-            }
-            .menu {
-                position: absolute;
-                top: 55px;   
-                left:0;
-                display: none;
-                flex-direction: column;
-                width: 180px;
-                background: rgba(255, 255, 255, 0.75);
-                backdrop-filter: blur(8px);
-                padding: 10px 0;
-                border-radius: 10px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.20);
-                z-index: 15;
-            }
+                .main__banner img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
 
-            .menu.menu--active {
-                display: flex;
-            }
+                .main__banner p {
+                    position: absolute;
+                    bottom: 40px;
+                    left: 20px;
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                    color: white;
+                    text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+                }
 
-            .menu__item {
-                width: 100%;
-                position: relative;
-            }
+                .servicio {
+                    width: 1000px;
+                    display: flex;
+                    margin: 40px auto;
+                }
 
-            .menu__link {
-                width: 100%;
-                display: block;
-                padding: 10px 15px;
-            }
+                .servicio__img img {
+                    width: 400px;
+                }
 
-            .menu__submenu {
-                display: none;
-                position: absolute;
-                top: 0;
-                left: 150px; 
-                flex-direction: column;
-                width: 150px;
-                background: rgba(255, 255, 255, 0.85);
-                backdrop-filter: blur(6px);
-                padding: 8px 0;
-                border-radius: 10px;
-                z-index: 30;
-            }
-            .menu__item--submenu.active .menu__submenu {
-                display: flex;
-            }
-            .menu__submenu-item a {
-                padding: 10px 15px;
-                display: block;
-            }
+                .servicio__contenido {
+                    padding: 20px 30px;
+                }
 
-            .menu__submenu-item:last-child a {
-                border-bottom: none;
-            }
-        }
-    </style>
-</head>
-<body> 
+                .servicio__contenido h3 {
+                    font-size: 3em;
+                }
 
-    <header class="header">
-        <nav class="header__nav">
-            <div class="header__container">
-                <div class="header__hamburguesa" id="hamburguesa">
-                    ☰
-                </div>
-                <!-- LOGO -->
-                <div class="header__logo">
-                    <img src="https://cdn-icons-png.flaticon.com/512/909/909124.png" alt="Logo del Spa">
-                </div>
+                .servicio__contenido h4 {
+                    font-size: 2.5em;
+                }
 
-                <!-- MENÚ PRINCIPAL -->
-                <ul class="menu">
+                .servicio__contenido p {
+                    margin-top: 20px;
+                }
 
-                    <!-- HOME -->
-                    <li class="menu__item">
-                        <a href="index.html" class="menu__link">Home</a>
-                    </li>
+                .servicio__contenido button {
+                    margin-top: 20px;
+                    padding: 12px 28px;
+                    border-radius: 30px;
+                    border: 1px solid #d10081;
+                    color: #d10081;
+                    background: transparent;
+                    cursor: pointer;
+                    transition: 0.3s;
+                }
 
-                    <!-- CLIENTE -->
-                    <li class="menu__item menu__item--submenu">
-                        <a href="#" class="menu__link">Cliente</a>
+                .servicio__contenido button:hover {
+                    background: #d10081;
+                    color: white;
+                }
+                /*Footer*/ 
+                footer::after { 
+                    content: "VICTOR REINADO__Desarrollo Web__SOFT-MA-6-1"; 
+                    display: block; 
+                    margin-top: 40px; 
+                    font-size: 0.8em; 
+                    color: #777; 
+                } 
+                #pie { 
+                    background-color: #333; 
+                    padding: 40px 20px; 
+                } 
+                .footer__contenido { 
+                    display: grid; 
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+                    gap: 30px; 
+                    max-width: 1200px; 
+                    margin: auto; 
+                } 
+                .footer__logo h3 { 
+                    font-size: 24px; 
+                    margin-top: 60px; 
+                    color: #ccc; 
+                } 
+                .footer__enlaces ul { 
+                    list-style: none; 
+                    padding: 0; 
+                } 
+                .footer__enlaces li { 
+                    margin-bottom: 6px; 
+                } 
+                .footer__enlaces a { 
+                    text-decoration: none; 
+                    color: #ccc; transition: 
+                    color 0.3s ease; 
+                } 
+                .footer__enlaces a:hover { 
+                    color: #d10081; 
+                } 
+                .footer__contacto p { 
+                    font-size: 14px; 
+                    color: #ccc; 
+                    margin: 5px 0; 
+                } 
+                .footer__redes a { 
+                    text-decoration: none; 
+                    color: #ccc; 
+                    margin: 0 5px; 
+                    transition: color 0.3s ease; 
+                } 
+                .footer__redes p{ 
+                    color: #ccc; 
+                } 
+                .footer__redes a:hover { 
+                    color: #d10081; 
+                } 
+                .footer__copy { 
+                    text-align: center; 
+                    margin-top: 40px; 
+                    padding-top: 15px; 
+                    font-size: 13px; 
+                } 
+                .footer__copy p{ 
+                    color: #ccc; 
+                } 
+                /*RESPONSIVO*/
 
-                        <ul class="menu__submenu">
-                            <li class="menu__submenu-item"><a href="#">Registrarme</a></li>
-                            <li class="menu__submenu-item"><a href="#">Tratamientos</a></li>
-                            <li class="menu__submenu-item"><a href="#">Servicios</a></li>
-                            <li class="menu__submenu-item"><a href="#">Productos</a></li>
+                @media screen and (max-width: 850px) {
+                    .header__hamburguesa {
+                        display: block;
+                    }
+
+                    .menu {
+                        display: none;
+                        position: absolute;
+                        top: 70px;
+                        left: 16px;
+                        flex-direction: column;
+                        width: 180px;
+                        padding: 10px 0;
+                        background: rgba(255,255,255,0.85);
+                        border-radius: 10px;
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                    }
+
+                    .menu.menu--active {
+                        display: flex;
+                    }
+
+                    .menu__link {
+                        color: #333;
+                        padding: 10px;
+                    }
+
+                    .menu__submenu {
+                        display: none;
+                        position: absolute;
+                        top: -9px;
+                        left: 125px;
+                        width: 150px;
+                        background: rgba(255,255,255,0.85);
+                        border-radius: 10px;
+                    }
+
+                    .menu__item--submenu.active .menu__submenu {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .servicio {
+                        flex-direction: column;
+                        width: 90%;
+                    }
+
+                    .servicio__img img {
+                        width: 100%;
+                        order: 1;
+                    }
+                    .servicio__img  {
+                        order: 1;
+                    }
+                    .servicio__contenido{
+                        order: 2;
+                    }
+
+
+                    .footer__contenido { 
+                        grid-template-columns: 1fr; 
+                        text-align: center; 
+                    } 
+                    .footer__redes a { 
+                        display: inline-block; 
+                        margin: 5px; 
+                    } 
+                }
+
+            </style>
+        </head>
+
+        <body>
+            <header class="header">
+                <nav class="header__nav">
+                    <div class="header__container">
+
+                        <div class="header__hamburguesa" id="hamburguesa">☰</div>
+
+                        <div class="header__logo">
+                            <img src="https://cdn.pixabay.com/photo/2024/01/15/20/37/massage-8510852_1280.png" alt="Logo del Spa">
+                        </div>
+
+                        <ul class="menu">
+
+                            <li class="menu__item"><a href="index.html" class="menu__link">Home</a></li>
+
+                            <li class="menu__item menu__item--submenu">
+                                <a href="#" class="menu__link">Cliente</a>
+                                <ul class="menu__submenu">
+                                    <li class="menu__submenu-item"><a href="#">Registrarme</a></li>
+                                    <li class="menu__submenu-item"><a href="#">Tratamientos</a></li>
+                                    <li class="menu__submenu-item"><a href="#">Servicios</a></li>
+                                    <li class="menu__submenu-item"><a href="#">Productos</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="menu__item menu__item--submenu">
+                                <a href="#" class="menu__link">Empleado</a>
+                                <ul class="menu__submenu">
+                                    <li class="menu__submenu-item"><a href="#">Registrar Empleado</a></li>
+                                    <li class="menu__submenu-item"><a href="#">Registrar Producto</a></li>
+                                    <li class="menu__submenu-item"><a href="#">Registrar Servicios</a></li>
+                                    <li class="menu__submenu-item"><a href="#">Registrar Tratamiento</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="menu__item"><a href="#" class="menu__link">Contacto</a></li>
+
                         </ul>
-                    </li>
 
-                    <!-- EMPLEADO -->
-                    <li class="menu__item menu__item--submenu">
-                        <a href="#" class="menu__link">Empleado</a>
+                    </div>
+                </nav>
+            </header>
 
-                        <ul class="menu__submenu">
-                            <li class="menu__submenu-item"><a href="#">Registrar Empleado</a></li>
-                            <li class="menu__submenu-item"><a href="#">Registrar Producto</a></li>
-                            <li class="menu__submenu-item"><a href="#">Registrar Servicios</a></li>
-                            <li class="menu__submenu-item"><a href="#">Registrar Tratamiento</a></li>
-                        </ul>
-                    </li>
+            <main class="main">
 
-                    <!-- CONTACTO -->
-                    <li class="menu__item">
-                        <a href="#" class="menu__link">Contacto</a>
-                    </li>
+                <div class="main__banner">
+                    <img src="https://blog.dia.es/wp-content/uploads/2015/04/relajaci%C3%B3n.jpg" alt="banner Principal">
+                    <p>The home of the world’s best facial, just got better.</p>
+                </div>
 
-                </ul>
-            </div>
-        </nav>
-        </header>
-        <script>
+                <!-- Secciones de servicios -->
+                <div class="servicio">
+                    <div class="servicio__img">
+                        <img src="https://www.vinevera.com.ec/wp-content/uploads/2019/09/chica-ultrasonido-600x400.jpg" alt="">
+                    </div>
+                    <div class="servicio__contenido">
+                        <h3>Lifting facial</h3>
+                        <h4>Lifting facial sin cirugía</h4>
+                        <p>Contamos con equipos de alta tecnología para diagnósticos completos...</p>
+                        <button>Lifting Facial</button>
+                    </div>
+                </div>
+
+                <div class="servicio">
+                    <div class="servicio__contenido">
+                        <h3>Lifting facial</h3>
+                        <h4>Lifting facial sin cirugía</h4>
+                        <p>Contamos con equipos de alta tecnología para diagnósticos completos...</p>
+                        <button>Lifting Facial</button>
+                    </div>
+                    <div class="servicio__img">
+                        <img src="https://www.vinevera.com.ec/wp-content/uploads/2019/09/chica-ultrasonido-600x400.jpg" alt="">
+                    </div>
+                </div>
+                <div class="servicio">
+                    <div class="servicio__img">
+                        <img src="https://www.vinevera.com.ec/wp-content/uploads/2019/09/chica-ultrasonido-600x400.jpg" alt="">
+                    </div>
+                    <div class="servicio__contenido">
+                        <h3>Lifting facial</h3>
+                        <h4>Lifting facial sin cirugía</h4>
+                        <p>Contamos con equipos de alta tecnología para diagnósticos completos...</p>
+                        <button>Lifting Facial</button>
+                    </div>
+                </div>
+
+                <div class="servicio">
+                    <div class="servicio__contenido">
+                        <h3>Lifting facial</h3>
+                        <h4>Lifting facial sin cirugía</h4>
+                        <p>Contamos con equipos de alta tecnología para diagnósticos completos...</p>
+                        <button>Lifting Facial</button>
+                    </div>
+                    <div class="servicio__img">
+                        <img src="https://www.vinevera.com.ec/wp-content/uploads/2019/09/chica-ultrasonido-600x400.jpg" alt="">
+                    </div>
+                </div>
+
+            </main>
+            <footer id="pie"> 
+                <div class="footer__contenido"> 
+                    <div class="footer__logo"> 
+                        <h3>Proyecto_Spa</h3> 
+                </div> 
+                <div class="footer__enlaces"> 
+                    <h4>Secciones</h4> 
+                        <ul> 
+                            <li><a href="#">Registrate</a></li> 
+                            <li><a href="#">Tartamientos</a></li> 
+                            <li><a href="#">Servicios</a></li> <li><a href="#">Productos</a></li> 
+                        </ul> 
+                        </div> 
+                            <div class="footer__contacto"> 
+                                <h4>Contacto</h4> 
+                                <p>Email: contacto@Spa.com</p> 
+                                <p>Teléfono: +593 987 654 321</p> 
+                            </div> 
+                            <div class="footer__redes"> 
+                                <h4>Síguenos</h4> 
+                                <p> <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a> 
+                                </p> 
+                            </div>
+                </div> 
+                <div class="footer__copy"> 
+                    <p>&copy; 2025 Proyecto hecho por el grupo #3. Todos los derechos reservados.</p> 
+                </div> 
+            </footer>
+
+            <script>
             const hamburguesa = document.getElementById("hamburguesa");
             const menu = document.querySelector(".menu");
-            const submenuItems = document.querySelectorAll(".menu__item--submenu");
 
             hamburguesa.addEventListener("click", () => {
                 menu.classList.toggle("menu--active");
             });
+            </script>
 
-        </script>
-
-
-</body>
-</html>
+        </body>
+    </html>
