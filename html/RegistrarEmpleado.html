@@ -11,7 +11,7 @@
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
-            <title>Proyecto Spa</title>
+            <title>Registrar Empleado</title>
 
             <style>
                 /*HEADER*/
@@ -97,120 +97,6 @@
                     cursor: pointer;
                 }
 
-
-                /*MAIN*/
-
-                .main__banner {
-                    position: relative;
-                    width: 100%;
-                    height: 600px;
-                }
-
-                .main__banner img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-
-                .main__banner p {
-                    position: absolute;
-                    bottom: 40px;
-                    left: 20px;
-                    font-size: 2.5rem;
-                    font-weight: bold;
-                    color: white;
-                    text-shadow: 0 3px 8px rgba(0,0,0,0.6);
-                }
-
-                .servicio {
-                    width: 1000px;
-                    display: flex;
-                    margin: 40px auto;
-                }
-
-                .servicio__img img {
-                    width: 400px;
-                }
-
-                .servicio__contenido {
-                    padding: 20px 30px;
-                }
-
-                .servicio__contenido h3 {
-                    font-size: 3em;
-                }
-
-                .servicio__contenido h4 {
-                    font-size: 2.5em;
-                }
-
-                .servicio__contenido p {
-                    margin-top: 20px;
-                }
-
-                button {
-                    margin-top: 20px;
-                    padding: 12px 28px;
-                    border-radius: 30px;
-                    border: 1px solid #d10081;
-                    color: #d10081;
-                    background: transparent;
-                    cursor: pointer;
-                    transition: 0.3s;
-                }
-
-                button:hover {
-                    background: #d10081;
-                    color: white;
-                }
-
-                .faciales {
-                    width: 1000px;
-                    max-width: 1000px;
-                    margin: 60px auto;
-                    text-align: center;
-                }
-
-                .faciales h2 {
-                    font-size: 2.2rem;
-                    margin-bottom: 20px;
-                    font-family: "Playfair Display";
-                }
-
-                .faciales p {
-                    max-width: 850px;
-                    margin: 0 auto 40px;
-                    line-height: 1.6;
-                }
-
-                .faciales__contenedor {
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr); 
-                    gap: 30px;
-                }
-
-                .faciales__opciones {
-                    background: #fff;
-                    border-radius: 12px;
-                    overflow: hidden;
-                    padding-bottom: 20px;
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-                    transition: transform .3s ease;
-                }
-
-                .faciales__opciones img {
-                    width: 100%;
-                    height: 200px;
-                    object-fit: cover;
-                }
-
-                .faciales__opciones p {
-                    margin: 20px;
-                }
-
-                .faciales__opciones:hover {
-                    transform: translateY(-6px);
-                }
                 footer::after { 
                     content: "VICTOR REINADO__Desarrollo Web__SOFT-MA-6-1"; 
                     display: block; 
@@ -319,48 +205,6 @@
                         flex-direction: column;
                     }
 
-                    .servicio {
-                        flex-direction: column;
-                        width: 90%;
-                    }
-
-                    .servicio__img img {
-                        width: 100%;
-                        order: 1;
-                    }
-                    .servicio__img  {
-                        order: 1;
-                    }
-                    .servicio__contenido{
-                        order: 2;
-                    }
-                    .faciales {
-                        width: 86%;
-                        margin: 60px 30px;
-                        text-align: center;
-                    }                   
-                    .faciales__contenedor {
-                        display: grid;
-                        grid-template-columns: repeat(2, 1fr); 
-                        gap: 20px;
-                    }
-
-                
-                    .faciales__opciones img {
-                        width: 100%;
-                        height: 200px;
-                        object-fit: cover;
-                    }
-
-                    .faciales__opciones p {
-                        margin: 20px;
-                    }
-
-                    .faciales__opciones:hover {
-                        transform: translateY(-6px);
-                    }
-
-
                     .footer__contenido { 
                         grid-template-columns: 1fr; 
                         text-align: center; 
@@ -402,7 +246,7 @@
                             <li class="menu__item menu__item--submenu">
                                 <a href="#" class="menu__link">Empleado</a>
                                 <ul class="menu__submenu">
-                                    <li class="menu__submenu-item"><a href="/html/RegistrarEmpleado.html">Registrar Empleado</a></li>
+                                    <li class="menu__submenu-item"><a href="#">Registrar Empleado</a></li>
                                     <li class="menu__submenu-item"><a href="#">Registrar Producto</a></li>
                                     <li class="menu__submenu-item"><a href="#">Registrar Servicios</a></li>
                                     <li class="menu__submenu-item"><a href="#">Registrar Tratamiento</a></li>
@@ -417,104 +261,10 @@
                 </nav>
             </header>
 
-            <main class="main">
-
-                <div class="main__banner">
-                    <img src="https://blog.dia.es/wp-content/uploads/2015/04/relajaci%C3%B3n.jpg" alt="banner Principal">
-                    <p>The home of the world’s best service, just got better.</p>
-                </div>
-
-                <!-- Secciones de servicios -->
-                <div class="servicio">
-                    <div class="servicio__img">
-                        <img src="https://www.vinevera.com.ec/wp-content/uploads/2019/09/chica-ultrasonido-600x400.jpg" alt="">
-                    </div>
-                    <div class="servicio__contenido">
-                        <h3>Lifting facial</h3>
-                        <h4>Lifting facial sin cirugía</h4>
-                        <p>Contamos con equipos de alta tecnología para diagnósticos completos...</p>
-                        <button>Lifting Facial</button>
-                    </div>
-                </div>
-
-                <div class="servicio">
-                    <div class="servicio__contenido">
-                        <h3>Productos</h3>
-                        <h4>VINEVERA</h4>
-                        <p>Vine Vera Resveratrol Skin Care.
-                            Cremas Vine Vera y productos de cuidado facial. 
-                            Productos de hidratación facial. 
-                            Envíos a domicilio en todo el Ecuador.</p>
-                        <button>Ver productos</button>
-                    </div>
-                    <div class="servicio__img">
-                        <img src="https://www.vinevera.com.ec/wp-content/uploads/2019/10/Chianti-serum-and-true-balance-458x400.jpg" alt="">
-                    </div>
-                </div>
-                <div class="servicio">
-                    <div class="servicio__img">
-                        <img src="https://i.pinimg.com/originals/1c/d8/87/1cd887633ebacc94d0e15b901b0821ab.jpg" alt="">
-                    </div>
-                    <div class="servicio__contenido">
-                        <h3>Relajacion y vino</h3>
-                        <h4>Masajes con proposito</h4>
-                        <p>Personal que sabe lo que hace, con herramientas y espacios diseñados para una expericia top.</p>
-                        <button>Agenda tu cita</button>
-                    </div>
-                </div>
-
-                <div class="servicio">
-                    <div class="servicio__contenido">
-                        <h3>Tratamientos</h3>
-                        <h4>SKIN SPA FACIAL</h4>
-                        <p> Masajes Faciales, Analisis de Piel, Hidrataciones, Tratamientos Anti-Envejecimiento , Dranajes Linfaticos Faciales, Atenuación de lineas finas y arrugas , Rejuvenecimiento, Purificamiento de Poros , Atenuación de manchas de piel y Musica Relajante..</p>
-                        <button>Analisis gratuito</button>
-                    </div>
-                    <div class="servicio__img">
-                        <img src="https://centroesteticoimpar.com/wp-content/uploads/2021/11/woman-spa-1536x1024.jpg" alt="">
-                    </div>
-                </div>
-                <div class="faciales">
-                    <h2>SERVICIOS TRANSFORMADORES</h2>
-
-                    <p>Los tratamientos y servicios más codiciados del país. Premiado, orientado a resultados y transformador. Piensa en una limpieza profunda, un lifting de firma mundialmente famoso y una piel tan luminosa y refinada que no necesita filtro. Cada uno adaptado a tu piel por nuestras esteticistas expertas.</p>
-                    <div class="faciales__contenedor">
-                        <div class="faciales__opciones">
-                            <img src="https://rescuespa.com/cdn/shop/files/Le_Remodeling_New_490b59a6-00d5-4bdc-9148-abba80c69c85.jpg?v=1754342141&width=535" alt="">
-                            <p>Durante más de 20 años, el Bio-Lift Facial™ ha sido elogiado por la crítica por su capacidad de...</p>
-                            <button> leer mas..</button>
-                        </div>
-                        <div class="faciales__opciones">
-                            <img src="https://beautyaficionado.com/wp-content/uploads/2025/12/Blog-image-1.jpg" alt="">
-                            <p>Para el amigo cuya casa marca el escenario para cada reunión, el conservador silencioso de la comodid..</p>
-                            <button>leer mas..</button>
-                        </div>
-                        <div class="faciales__opciones">
-                            <img src="https://rescuespa.com/cdn/shop/files/Top_Services_-_Hair.jpg?v=1754514252&width=600" alt="">
-                            <p>Cuidado capilar experto, hecho a medida. Desde cortes precisos hasta explosivos perfectos.</p>
-                            <button> agenda tu cita</button>
-                        </div>
-                        <div class="faciales__opciones">
-                            <img src="https://rescuespa.com/cdn/shop/files/Service_Collections_-_Nails_New.jpg?v=1754402929&width=600" alt="">
-                            <p>Manicuras y pedicuras meticulosas en su máxima expresión, con atención al detalle y precisión.</p>
-                            <button> agenda tu cita</button>
-                        </div>
-                        <div class="faciales__opciones">
-                            <img src="https://i.pinimg.com/originals/61/db/65/61db65f00cad5cda4faf450f214b16f9.jpg" alt="">
-                            <p>Masajes terapéuticos, personalizados a tu comodidad para aliviar la tensión y restaurar el equilibrio.</p>
-                            <button> agenda tu cita</button>
-                        </div>
-                        <div class="faciales__opciones">
-                            <img src="https://dermaestetica.com.co/wp-content/uploads/2023/09/kinesiotaping.png" alt="">
-                            <p>kineciologia, asesoramiento profecional para una recuperacion total .</p>
-                            <button> agenda tu cita</button>
-                        </div>
-
-                    </div>
-                    
-                </div>
-
-
+        
+            <main>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta sit, cum sed vitae veniam nobis nostrum consectetur commodi, necessitatibus quasi ut autem, facere porro hic officiis vel corrupti earum!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ratione quos, optio voluptatibus similique animi tempore maiores recusandae corporis voluptate corrupti voluptatum itaque numquam quisquam maxime expedita, pariatur, repellendus incidunt.lore
             </main>
             <footer id="pie"> 
                 <div class="footer__contenido"> 
