@@ -96,7 +96,70 @@
                     font-size: 2rem;
                     cursor: pointer;
                 }
+                /*FORM*/
+                .form {
+                    width: 90%;
+                    max-width: 600px;
+                    background: #ffffff;
+                    margin: 120px auto;
+                    padding: 35px 40px;
+                    border-radius: 15px;
+                    box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+                    font-family: 'Montserrat', sans-serif;
+                }
+                .form__title {
+                    text-align: center;
+                    font-family: "Playfair Display";
+                    font-size: 2rem;
+                    margin-bottom: 25px;
+                    color: #762353;
+                }
+                .form__group {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                }
+                .form__group label {
+                    font-size: 0.95rem;
+                    margin-bottom: 6px;
+                    font-weight: 500;
+                    color: #444;
+                }
+                .form__group input,
+                .form__group select {
+                    padding: 12px;
+                    border: 1px solid #d5b8cf;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    outline: none;
+                    transition: border .3s ease;
+                }
+                .form__group input:focus,
+                .form__group select:focus {
+                    border-color: #d10081;
+                }
 
+                .form__error {
+                    color: #d10052;
+                    font-size: 0.8rem;
+                    margin-top: 5px;
+                    height: 16px;
+                }
+
+                .form__button {
+                    width: 100%;
+                    padding: 12px;
+                    background: #d10081;
+                    color: white;
+                    border: none;
+                    border-radius: 30px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: .3s ease;
+                }
+                .form__button:hover {
+                    background: #a90063;
+                }
                 footer::after { 
                     content: "VICTOR REINADO__Desarrollo Web__SOFT-MA-6-1"; 
                     display: block; 
@@ -260,11 +323,64 @@
                     </div>
                 </nav>
             </header>
-
-        
+            
             <main>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam dicta sit, cum sed vitae veniam nobis nostrum consectetur commodi, necessitatibus quasi ut autem, facere porro hic officiis vel corrupti earum!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ratione quos, optio voluptatibus similique animi tempore maiores recusandae corporis voluptate corrupti voluptatum itaque numquam quisquam maxime expedita, pariatur, repellendus incidunt.lore
+                <form class="form">
+
+                    <h2 class="form__title">Registrar nuevo empleado</h2>
+
+                    <!-- Nombre -->
+                    <div class="form__group">
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" placeholder="Ej: Ana López" required>
+                        <small class="form__error"></small>
+                    </div>
+
+                    <!-- Cédula -->
+                    <div class="form__group">
+                        <label for="cedula">Cédula / DNI:</label>
+                        <input type="text" id="cedula" maxlength="10" pattern="[0-9]{10}" placeholder="10 dígitos" required>
+                        <small class="form__error"></small>
+                    </div>
+
+                    <!-- Correo -->
+                    <div class="form__group">
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" placeholder="empleado@spa.com" required>
+                        <small class="form__error"></small>
+                    </div>
+
+                    <!-- Teléfono -->
+                    <div class="form__group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" id="telefono" pattern="[0-9]{10}" maxlength="10" placeholder="0998765432" required>
+                        <small class="form__error"></small>
+                    </div>
+
+                    <!-- Rol -->
+                    <div class="form__group">
+                        <label for="rol">Cargo / Área:</label>
+                        <select id="rol" required>
+                            <option value="">Seleccione...</option>
+                            <option>Esteticista</option>
+                            <option>Recepcionista</option>
+                            <option>Masajista</option>
+                            <option>Administrativo</option>
+                            <option>Director Clínico</option>
+                        </select>
+                        <small class="form__error"></small>
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div class="form__group">
+                        <label for="pass">Contraseña de acceso:</label>
+                        <input type="password" id="pass" minlength="6" placeholder="Mínimo 6 caracteres" required>
+                        <small class="form__error"></small>
+                    </div>
+
+                    <button class="form__button" type="submit">Registrar empleado</button>
+
+                </form>
             </main>
             <footer id="pie"> 
                 <div class="footer__contenido"> 
@@ -296,13 +412,85 @@
             </footer>
 
             <script>
-            const hamburguesa = document.getElementById("hamburguesa");
-            const menu = document.querySelector(".menu");
+                document.addEventListener("DOMContentLoaded", () => {
+                const form = document.querySelector(".form");
+                const nombre = document.getElementById("nombre");
+                const cedula = document.getElementById("cedula");
+                const correo = document.getElementById("correo");
+                const telefono = document.getElementById("telefono");
+                const rol = document.getElementById("rol");
+                const pass = document.getElementById("pass");
 
-            hamburguesa.addEventListener("click", () => {
-                menu.classList.toggle("menu--active");
+                // función para mostrar errores
+                function error(input, mensaje) {
+                    const contenedor = input.parentElement.querySelector(".form__error");
+                    contenedor.textContent = mensaje;
+                    input.style.borderColor = "#d10052";
+                }
+
+                // función para limpiar errores
+                function limpiar(input) {
+                    const contenedor = input.parentElement.querySelector(".form__error");
+                    contenedor.textContent = "";
+                    input.style.borderColor = "#d5b8cf";
+                }
+
+                form.addEventListener("submit", (e) => {
+                    let valido = true;
+
+                    // Validar nombre
+                    if (nombre.value.trim().length < 3) {
+                        error(nombre, "Ingresa un nombre válido.");
+                        valido = false;
+                    } else limpiar(nombre);
+
+                    // Validar cédula (10 dígitos)
+                    if (!/^\d{10}$/.test(cedula.value.trim())) {
+                        error(cedula, "La cédula debe tener 10 dígitos.");
+                        valido = false;
+                    } else limpiar(cedula);
+
+                    // Validar correo
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(correo.value.trim())) {
+                        error(correo, "Correo no válido.");
+                        valido = false;
+                    } else limpiar(correo);
+
+                    // Validar teléfono
+                    if (!/^\d{10}$/.test(telefono.value.trim())) {
+                        error(telefono, "El teléfono debe tener 10 dígitos.");
+                        valido = false;
+                    } else limpiar(telefono);
+
+                    // Validar selección del rol
+                    if (rol.value === "") {
+                        error(rol, "Selecciona un rol.");
+                        valido = false;
+                    } else limpiar(rol);
+
+                    // Validar contraseña
+                    if (pass.value.length < 6) {
+                        error(pass, "Mínimo 6 caracteres.");
+                        valido = false;
+                    } else limpiar(pass);
+
+                    // Evitar el envío si hay errores
+                    if (!valido) {
+                        e.preventDefault();
+                    } else {
+                        alert("Empleado registrado correctamente ✔");
+                    }
+                });
             });
+                const hamburguesa = document.getElementById("hamburguesa");
+                const menu = document.querySelector(".menu");
+
+                hamburguesa.addEventListener("click", () => {
+                    menu.classList.toggle("menu--active");
+                });
             </script>
+
 
         </body>
     </html>
